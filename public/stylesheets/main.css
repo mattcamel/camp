@@ -1,0 +1,36 @@
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+#footer {
+	background: white;
+    text-align: center;
+    vertical-align: middle;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+.form-header {
+	text-align: center;
+}
+
+.form-div {
+	width: 30%; margin: 0 auto;
+}
+
+.inline-buttons {
+	display: inline;
+}
+
+ul.nav.navbar-nav li {
+	text-align: center;
+}

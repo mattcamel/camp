@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+
+<!-- NEW COMMENT FORM -->
+
+<div class="container">
+	<h1 style="text-align: center">New comment for <%= campground.name %>:</h1>
+	<div style="width: 30%; margin: 0 auto;">
+		<form action="/campgrounds/<%= campground._id %>/comments" method="POST">
+			<div class="form-group">
+				<input class="form-control" type='hidden' value="<%= currentUser.username %>" name="comment[author]" readonly=true>
+			</div>
+			<div class="form-group">
+				<textarea class="form-control" placeholder="Comment" name="comment[text]"></textarea>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-lg btn-default btn-block">Submit!</button>
+			</div>
+		</form>
+		<a href="/campgrounds/<%= campground._id %>">Go Back</a>
+	</div>
+</div>
+
+<% include ../partials/footer %>
