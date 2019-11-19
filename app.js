@@ -17,10 +17,8 @@ const campgroundRoutes = require("./routes/campgrounds"),
 
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useFindAndModify', false);
-//test DB
-//mongoose.connect("mongodb://localhost:27017/yelp_camp_v12", {useNewUrlParser: true});
-//deployed DB
-mongoose.connect("mongodb+srv://mattcamel:4z6r5q1T3xdfBBTv@cluster0-vmqtn.mongodb.net/test?retryWrites=true&w=majority", {
+//mongoose.connect("mongodb+srv://mattcamel:4z6r5q1T3xdfBBTv@cluster0-vmqtn.mongodb.net/test?retryWrites=true&w=majority")
+mongoose.connect(process.env.DATABASEURL, {
 	useNewUrlParser: true,
 	useCreateIndex: true
 }).then(() => {
@@ -62,8 +60,6 @@ app.use('/', indexRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 
-app.listen(process.env.PORT, process.env.IP);
-
-// app.listen(3000, () => {
-// 	console.log("Yelp Camp server listening");
-// });
+app.listen(process.env.PORT, process.env.IP, () => {
+	console.log("Yelp Camp server listening");
+});
