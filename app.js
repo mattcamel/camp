@@ -8,17 +8,20 @@ const express 	= require("express"),
 	LocalStrategy = require('passport-local'),
 	Campground  = require("./models/campground"),
 	Comment 	= require("./models/comment"),
+	Photo		= require("./models/photo"),
 	User		= require("./models/user"),
 	seedDB 		= require("./seeds");
 
-const campgroundRoutes = require("./routes/campgrounds"),
-		 commentRoutes = require("./routes/comments"),
-		   indexRoutes = require("./routes/index");
+const campgroundRoutes 	= require("./routes/campgrounds"),
+		commentRoutes 	= require("./routes/comments"),
+		indexRoutes 	= require("./routes/index"),
+		photoRoutes 	= require("./routes/photos");
 
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useFindAndModify', false);
-//mongoose.connect("mongodb+srv://mattcamel:4z6r5q1T3xdfBBTv@cluster0-vmqtn.mongodb.net/test?retryWrites=true&w=majority")
-mongoose.connect(process.env.DATABASEURL, {
+
+const url = process.env.DATABASEURL || 'mongodb://localhost:27017/yelp_camp_v12';
+mongoose.connect(url, {
 	useNewUrlParser: true,
 	useCreateIndex: true
 }).then(() => {
@@ -59,7 +62,14 @@ app.use(function(req,res,next){
 app.use('/', indexRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
+app.use('/campgrounds/:id/photos', photoRoutes);
 
-app.listen(process.env.PORT, process.env.IP, () => {
+const port = process.env.PORT || 3000;
+app.listen(port, process.env.IP, () => {
 	console.log("Yelp Camp server listening");
 });
+
+console.log(process.env.PORT);
+console.log(port);
+console.log(process.env.DATABASEURL);
+console.log(url);

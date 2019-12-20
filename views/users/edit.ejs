@@ -1,25 +1,24 @@
 <% include ../partials/header %>
 
-<!-- NEW COMMENT FORM -->
+<!-- EDIT PASSWORD FORM -->
 
 <div class="container">
-	<h1 style="text-align: center">Edit <%= currentUser.username %>'s password:</h1>
+	<h1 style="text-align: center">Edit <%= user.username %>'s password:</h1>
 	<div style="width: 30%; margin: 0 auto;">
-		<form action='/profile/<%= currentUser.username %>?_method=PUT' method="POST">
+		<form action='/profile/<%= user.username %>?_method=PUT' method="POST">
 			<div class="form-group">
-				<input class="form-control" type='password' name="currentPassword" placholder='current password'>
+				<label>New password:</label>
+				<input class="form-control" type='password' name="password">
 			</div>
 			<div class="form-group">
-				<input class="form-control" type='password' name="newPassword" placholder='new password'>
-			</div>
-			<div class="form-group">
-				<input class="form-control" type='password' name="confirmPassword" placholder='confirm password'>
+				<label>Confirm new password:</label>
+				<input class="form-control" type='password' name="confirm">
 			</div>
 			<div class="form-group">
 				<button class="btn btn-lg btn-default btn-block">Submit!</button>
 			</div>
 		</form>
-		<a href="/profile/<% currentUser.username %>">Go Back</a>
+		<a href="/profile/<% user.username %>">Go Back</a>
 	</div>
 </div>
 

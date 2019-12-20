@@ -11,6 +11,10 @@
 				<input class="form-control" type="text" value='<%= foundCampground.name %>' name="campground[name]">			
 			</div>
 			<div class="form-group">
+				<label>Location</label>
+				<input class="form-control" type="text" value='<%= foundCampground.location %>' name="campground[location]">			
+			</div>
+			<div class="form-group">
 				<label>Nightly Rate</label>
 				<input class="form-control" type="number" min='0' step=0.01 value='<%= foundCampground.price %>' name="campground[price]">
 			</div>
@@ -20,7 +24,7 @@
 			</div>
 			<div class="form-group">
 				<label>Description</label>
-				<input class="form-control" type="text" value='<%= foundCampground.description %>' name="campground[description]">
+				<textarea class="form-control" name="campground[description]"><%- foundCampground.description %></textarea>
 			</div>
 			<div class="form-group">
 				<button class="btn btn-med btn-success btn-block">Save</button>

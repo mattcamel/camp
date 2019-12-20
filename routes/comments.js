@@ -25,7 +25,7 @@ router.post("/", middleware.isLoggedIn, async (req,res) => {
 		await foundCampground.comments.push(comment);
 		await foundCampground.save();
 		req.flash('success', 'Comment added!');
-		res.redirect("/campgrounds/" + foundCampground._id);
+		res.redirect(`/campgrounds/${foundCampground._id}/comments`);
 	}catch(err){
 		console.log(err);
 		req.flash('error', 'Something went wrong.');

@@ -1,20 +1,18 @@
 <% include ../partials/header %>
 
 <div class='container'>
-	<h1><%= user.username %>'s Profile Page</h1>
-
-	<a href='#'>Change Password</a>
-
-	<h3>Campgrounds:</h3>
-	<p>
-		links to campgrounds
-	</p>
-	
-	<h3>Comments:</h3>
-	<p>
-		links to comments
-	</p>
-	<br>
+	<div class='row'>
+		<div class='col-sm-3'>
+			<h1><%= user.username %>'s Profile</h1>
+			<a href='/profile/<%= user._id %>/edit'>Change Password</a>
+		</div>
+		<div class='col-sm-9'>
+			<h3>Campgrounds:</h3>
+			<p>links to campgrounds</p>
+			<h3>Comments:</h3>
+			<p>links to comments</p>
+		</div>
+	</div>
 </div>
 
 <% include ../partials/footer %>

@@ -5,9 +5,25 @@
 <div class="container">
 	<header class="jumbotron">
 		<h1><span class='glyphicon glyphicon-tent'></span>Campgrounds</h1>
-		<p>View our hand-picked campgrounds from all over the world</p>
+		<p>Selection of campgrounds from all over the world</p>
+		
+		<form action='/campgrounds/results' method='GET'>
+			<div class='row'>
+				<div class='col-md-6 jumbo-search-bar'>
+					<div class="form-group">
+						<input class="form-control" type="text" placeholder="Search campgrounds" name="search">	
+					</div>
+				</div>
+				<div class='col-md-3 jumbo-search-button'>
+					<div class="form-group">
+						<button class="btn btn-md btn-success">Search</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		
 		<p>
-			<a class="btn btn-primary btn-lg" href="/campgrounds/new">Add a New Campground</a>
+			<a class="btn btn-primary btn-md" href="/campgrounds/new">Add new campground</a>
 		</p>
 	</header>
 	
