@@ -1,1 +1,1 @@
-heroku deployment: https://git.heroku.com/limitless-plateau-07324.git
+heroku deployment (Dec20-2019): https://limitless-plateau-07324.herokuapp.com/
